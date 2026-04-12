@@ -1,9 +1,7 @@
 import { Module } from '@nestjs/common';
-
+import { VentasModule } from './ventas/ventas.module';
 
 @Module({
-  imports: [MarlonModule],
-  controllers: [],
-  providers: [],
+  imports: [VentasModule],
 })
 export class AppModule {}
