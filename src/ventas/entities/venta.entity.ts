@@ -15,6 +15,6 @@ export class Venta {
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   precio!: number;
 
-  @Column({ type: 'timestamp' })
+  @Column()
   fecha!: Date;
 }
