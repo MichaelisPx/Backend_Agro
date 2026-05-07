@@ -1,15 +1,14 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+
 
 @Entity({ name: 'ventas' })
 export class Venta {
-
   @PrimaryGeneratedColumn({ name: 'id_venta' })
   id_venta!: number;
 
-  @Column({ name: 'id_cosecha', type: 'integer' })
-  id_cosecha!: number;
+  @ManyToOne(() => Cosecha, (cosecha) => cosecha.ventas)
+  @JoinColumn({ name: 'id_cosecha' })
+  cosecha!: Cosecha;
 
-  // ❗ SQLite NO usa timestamp → usamos datetime
   @Column({ name: 'fecha_venta', type: 'datetime' })
   fecha_venta!: Date;
 
