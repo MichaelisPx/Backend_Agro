@@ -1,11 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-// import { OneToMany } from 'typeorm';
-// import { Cosecha } from '../cosechas/cosecha.entity';
-// import { Reporte } from '../reportes/reporte.entity';
-// import { Incidencia } from '../incidencias/incidencia.entity';
 
 @Entity('cultivo_real')
 export class CultivoReal {
+
   @PrimaryGeneratedColumn()
   id_cultivo_real!: number;
 
@@ -24,18 +21,20 @@ export class CultivoReal {
   @Column()
   id_usuario_responsable!: number;
 
-  // UN CULTIVO REAL
-  // TIENE MUCHAS COSECHAS
-  // @OneToMany(() => Cosecha, (cosecha) => cosecha.cultivo_real)
-  // cosechas!: Cosecha[];
+  // =========================
+  // RELACIONES DEL DIAGRAMAaa
+  // =========================
 
-  // UN CULTIVO REAL
-  // TIENE MUCHOS REPORTES
-  // @OneToMany(() => Reporte, (reporte) => reporte.cultivo_real)
-  // reportes!: Reporte[];
+  // cultivo_real -> reportes
+  // Un cultivo_real puede tener muchos reportes
+  // RELACION: OneToMany
 
-  // UN CULTIVO REAL
-  // TIENE MUCHAS INCIDENCIAS
-  // @OneToMany(() => Incidencia, (incidencia) => incidencia.cultivo_real)
-  // incidencias!: Incidencia[];
+  // cultivo_real -> cosechas
+  // Un cultivo_real puede tener muchas cosechas
+  // RELACION: OneToMany
+
+  // cultivo_real -> incidencias
+  // Un cultivo_real puede tener muchas incidencias
+  // RELACION: OneToMany
+
 }
