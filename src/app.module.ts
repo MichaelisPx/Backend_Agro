@@ -1,16 +1,22 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { VentasModule } from './ventas/ventas.module';
+import { CosechaModule } from './cosecha/cosecha.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'db.sqlite',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: 'root',
+      database: 'backend_agro',
+
+      autoLoadEntities: true,
       synchronize: true,
     }),
-    VentasModule,
+
+    CosechaModule,
   ],
 })
 export class AppModule {}
